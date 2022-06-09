@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my-lucky {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="my-lucky"></div>
+    <script src="https://unpkg.com/lucky-canvas@1.7.24"></script>
+
+    <script>
+        const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+            width: '240px',
+            height: '240px',
+            blocks: [
+                { padding: '20px' },
+                {
+                    padding: '20px',
+                    imgs: [{
+                        src: './background5.png',
+                        width: '100%',
+                        rotate: true
+                    }]
+                }
+            ],
+            prizes: [
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: 'ipad',
+                            fontSize:'10px'
+                        }
+                    ]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: '罗技键鼠一套',
+                            fontSize:'10px'
+                        }]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: '小米显示器',
+                            fontSize:'10px'
+                        }
+                    ]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: '空气净化器',
+                            fontSize:'10px'
+                        }]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: 'iPhone13',
+                            fontSize:'10px'
+                        }
+                    ]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: '小米扫地机器人',
+                            fontSize:'10px'
+                        }]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: '防蓝光眼镜',
+                            fontSize:'10px'
+                        }
+                    ]
+                },
+                {
+                    range: 10,
+                    fonts: [
+                        {
+                            text: 'switch一台',
+                            fontSize:'10px'
+                        }]
+                },
+            ],
+            defaultConfig: {
+                speed: 15
+            },
+            buttons: [
+                {
+                    radius: '45%',
+                    imgs: [{
+                        src: './zhizhen.png',
+                        width: '120%',
+                        top: '-144%'
+                    }]
+                }
+            ],
+            start: function () {
+                // 开始游戏
+                myLucky.play()
+                // 使用定时器模拟接口
+                setTimeout(() => {
+                    
+                    // 结束游戏
+                    myLucky.stop()
+                }, 3000)
+            }
+        })
+        // 开始
+        // myLucky.play()
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my-lucky {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="my-lucky"></div>
+    <script src="https://unpkg.com/lucky-canvas@1.7.24"></script>
+    <script>
+        const prizeImg = [{
+            src: './emoji (1).png',
+            width: '50%',
+            top: '25%'
+        },
+        {
+            src: './emoji (2).png',
+            width: '50%',
+            top: '25%'
+        },
+        {
+            src: './emoji (3).png',
+            width: '50%',
+            top: '25%'
+        },
+        {
+            src: './emoji (4).png',
+            width: '50%',
+            top: '25%'
+        }]
+        const myLucky = new LuckyCanvas.LuckyGrid('#my-lucky', {
+            width: '200px',
+            height: '200px',
+            blocks: [
+                { padding: '10px', background: '#869cfa' },
+                { padding: '10px', background: '#e9e8fe' },
+            ],
+            prizes: [
+                { x: 0, y: 0, imgs: [prizeImg[0]] },
+                { x: 1, y: 0, imgs: [prizeImg[1]] },
+                { x: 2, y: 0, imgs: [prizeImg[2]] },
+                { x: 2, y: 1, imgs: [prizeImg[3]] },
+                { x: 2, y: 2, imgs: [prizeImg[0]] },
+                { x: 1, y: 2, imgs: [prizeImg[1]] },
+                { x: 0, y: 2, imgs: [prizeImg[2]] },
+                { x: 0, y: 1, imgs: [prizeImg[3]] },
+            ],
+            defaultStyle: {
+                background: '#b8c5f2'
+            },
+          
+            buttons: [
+                {
+                    x: 1, y: 1,
+                    background: 'rgba(0,0,0,0)',
+                    imgs: [{
+                        src: './play.png',
+                        width: '100%',
+                        height: '100%',
+                    }],
+                },
+            ],
+            start: function () {
+                // 开始游戏
+                myLucky.play()
+                // 使用定时器模拟接口
+                setTimeout(() => {
+
+                    // 结束游戏
+                    myLucky.stop()
+                }, 3000)
+            }
+        })
+    </script>
+</body>
+
+</html>
