@@ -1,105 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        #my-lucky {
-            margin: 0 auto;
-        }
+      #my-lucky {
+        margin: 0 auto;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="my-lucky"></div>
     <script src="https://unpkg.com/lucky-canvas@1.7.24"></script>
     <script>
-        const myLucky = new LuckyCanvas.SlotMachine('#my-lucky', {
-            width: '240px',
-            height: '180px',
-            // 背景配置
-            blocks: [
-                { padding: '10px', background: '#869cfa' },
-                { padding: '10px', background: '#e9e8fe' },
+      const myLucky = new LuckyCanvas.SlotMachine("#my-lucky", {
+        width: "240px",
+        height: "180px",
+        // 背景配置
+        blocks: [
+          { padding: "10px", background: "#869cfa" },
+          { padding: "10px", background: "#e9e8fe" },
+        ],
+        //折这插槽转速、方向
+        slots: [
+          { speed: 5, direction: 1 },
+          { speed: 5, direction: -1 },
+          { speed: 5, direction: 1 },
+        ],
+        // 奖品
+        prizes: [
+          {
+            background: "#bac5ee",
+            borderRadius: "10px",
+            imgs: [
+              {
+                width: "60%",
+                top: "20%",
+                src: "./emoji (1).png",
+              },
             ],
-            //折这插槽转速、方向
-            slots: [
-                { speed: 5, direction: 1 },
-                { speed: 5, direction: -1 },
-                { speed: 5, direction: 1 },
+          },
+          {
+            background: "#bac5ee",
+            borderRadius: "10px",
+            imgs: [
+              {
+                width: "60%",
+                top: "20%",
+                src: "./emoji (2).png",
+              },
+            ],
+          },
+          {
+            background: "#bac5ee",
+            borderRadius: "10px",
+            imgs: [
+              {
+                width: "60%",
+                top: "20%",
+                src: "./emoji (3).png",
+              },
+            ],
+          },
+          {
+            background: "#bac5ee",
+            borderRadius: "10px",
+            imgs: [
+              {
+                width: "60%",
+                top: "20%",
+                src: "./emoji (4).png",
+              },
+            ],
+          },
+        ],
+        defaultConfig: {
+          rowSpacing: "10px", //行间距
+          colSpacing: "10px",
+        },
+      });
 
-            ],
-            // 奖品
-            prizes: [
-                {
-                    background: '#bac5ee',
-                    borderRadius: '10px',
-                    imgs: [{
-                        width: '60%',
-                        top: '20%',
-                        src: './emoji (1).png'
-                    }]
-                },
-                {
-                    background: '#bac5ee',
-                    borderRadius: '10px',
-                    imgs: [{
-                        width: '60%',
-                        top: '20%',
-                        src: './emoji (2).png'
-                    }]
-                },
-                {
-                    background: '#bac5ee',
-                    borderRadius: '10px',
-                    imgs: [{
-                        width: '60%',
-                        top: '20%',
-                        src: './emoji (3).png'
-                    }]
-                },
-                {
-                    background: '#bac5ee',
-                    borderRadius: '10px',
-                    imgs: [{
-                        width: '60%',
-                        top: '20%',
-                        src: './emoji (4).png'
-                    }]
-                },
-            ],
-            defaultConfig: {
-                rowSpacing: '10px',//行间距
-                colSpacing: '10px'
-            }
-        })
-
-        // 开始游戏
-        const playGame = () => {
-            myLucky.play()
-            setTimeout(() => {
-                // 假设 4 种结果
-                const res = [
-                    [9, 9, 6],
-                    [0, 0, 7],
-                    [6, 9, 1],
-                    [8, 2, 8]
-                ]
-                // 随机取一组数据
-                const index = res[Math.random() * 4 >> 0]
-                // 调用 stop 方法停止游戏
-                myLucky.stop(index)
-            }, 500);
-        }
-        // 循环演示
-        playGame()
-        // setInterval(() => {
-        //     playGame()
-        // }, 6000)
+      // 开始游戏
+      const playGame = () => {
+        myLucky.play();
+        setTimeout(() => {
+          // 假设 4 种结果
+          const res = [
+            [9, 9, 6],
+            [0, 0, 7],
+            [6, 9, 1],
+            [8, 2, 8],
+          ];
+          // 随机取一组数据
+          const index = res[(Math.random() * 4) >> 0];
+          // 调用 stop 方法停止游戏
+          myLucky.stop(index);
+        }, 500);
+      };
+      // 循环演示
+      playGame();
+      // setInterval(() => {
+      //     playGame()
+      // }, 6000)
     </script>
-</body>
-
+  </body>
 </html>
